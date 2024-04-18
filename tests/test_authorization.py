@@ -20,3 +20,13 @@ def test_authorization(browser):
     with allure.step('Click button'):
         authorization_page.login_button().click()
         sleep(1)
+
+
+def test_button_check(browser):
+    with allure.step('Open browser'):
+        authorization_page = AuthorizationPage(browser)
+    with allure.step('Go to site'):
+        authorization_page.open()
+    with allure.step('Click button'):
+        assert authorization_page.login_button().is_displayed()
+        sleep(1)
