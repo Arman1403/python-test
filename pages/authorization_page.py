@@ -1,4 +1,3 @@
-import pytest
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 import random
@@ -17,8 +16,6 @@ class AuthorizationPage(BasePage):
 
     def open(self):
         self.browser.get('https://www.saucedemo.com')
-
-    ####################################################################
 
     def login_button(self):
         return self.find(login_button)
