@@ -1,16 +1,17 @@
 name: Automation test
 
 on:
-  workflow_dispatch:
-    inputs:
-      deployment_target:
-        description: Choose target
-        required: true
-        default:
-        type: choice
-        options:
-          - first_test
-          - second_test
+  push
+  #workflow_dispatch:
+   # inputs:
+    #  deployment_target:
+     #   description: Choose target
+      #  required: true
+       # default:
+        #type: choice
+        #options:
+         # - first_test
+          #- second_test
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -27,8 +28,8 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: first_test
-        if: "github.event.inputs.deployment_target == 'first_test'"
-        run: pytest tests/test_authorization.py::test_authorization
+        #if: "github.event.inputs.deployment_target == 'first_test'"
+        run: tests/test_authorization.py::test_authorization
       - name: second_test
-        if: "github.event.inputs.deployment_target == 'second_test'"
+        #if: "github.event.inputs.deployment_target == 'second_test'"
         run: pytest tests/test_authorization.py::test_button_check
