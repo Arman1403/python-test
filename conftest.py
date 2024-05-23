@@ -1,3 +1,5 @@
+import allure
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
@@ -11,3 +13,6 @@ def browser():
     chrome_browser.implicitly_wait(10)
     chrome_browser.maximize_window()
     return chrome_browser
+
+
+

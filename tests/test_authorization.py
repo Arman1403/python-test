@@ -1,12 +1,17 @@
 from time import sleep
+
+import pytest
+
 from pages.authorization_page import AuthorizationPage
 import allure
+from allure_commons.types import AttachmentType
 
 
 @allure.feature('Authorization')
 @allure.story('Authorization to the system')
 @allure.description('This test will run test of website authorization')
-def test_authorization(browser):
+@pytest.fixture()
+def authorization(browser):
     with allure.step('Open browser'):
         authorization_page = AuthorizationPage(browser)
     with allure.step('Go to site'):
